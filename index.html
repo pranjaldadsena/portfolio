@@ -1,592 +1,500 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranjal Dadsena — Electronics &amp; Computer Engineering Student</title>
-<meta name="description" content="Pranjal Dadsena is an Electronics and Computer Engineering student at VIT Chennai building software, embedded systems, and signal-driven projects.">
-<meta property="og:title" content="Pranjal Dadsena — Electronics &amp; Computer Engineering Student">
-<meta property="og:description" content="Software, embedded systems, and signal-driven projects from a VIT Chennai ECE student.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pranjal Dadsena — Engineer, Builder, Dancer</title>
+<meta name="description" content="Pranjal Dadsena — Electronics & Computer Engineering student at VIT Chennai building software, embedded systems, DSP projects, and algorithms.">
+<meta property="og:title" content="Pranjal Dadsena — Engineer, Builder, Dancer">
+<meta property="og:description" content="Software, systems, signals, movement, and things that move.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#f2ede3;
-    --paper-dim:#e9e2d3;
-    --ink:#1c1a15;
-    --ink-soft:#514c3f;
-    --rule:#d9d0bb;
-    --copper:#b5591f;
-    --copper-deep:#8f4315;
-    --signal:#3c5a4e;
-    --panel:#191712;
-    --panel-ink:#f2ede3;
-    --panel-rule:#3a352b;
-    --radius-outer:18px;
-    --radius-inner:12px;
-    --serif:'Fraunces', Georgia, serif;
-    --sans:'IBM Plex Sans', -apple-system, sans-serif;
-    --mono:'IBM Plex Mono', ui-monospace, monospace;
-  }
+:root{
+  --paper:#eeeee8;--paper-2:#e3e3da;--ink:#11110f;--muted:#5c5c53;
+  --line:#cecec2;--accent:#c9871e;--accent-2:#25296f;--black:#10100e;
+  --white:#f2f1e9;--dark-muted:#aaa99b;--max:1180px;--radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5;overflow-x:hidden}
+h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:.95;letter-spacing:-.03em;text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--black)}
+.skip{position:absolute;left:-999px;top:0;background:var(--black);color:#fff;padding:10px 14px;z-index:999}
+.skip:focus{left:0}
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
-  }
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:14px 24px;border-bottom:1px solid rgba(17,17,15,.12);background:rgba(238,238,232,.78);backdrop-filter:blur(10px)}
+.nav-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;align-items:center}
+.brand{font:700 17px Georgia,serif;text-decoration:none}
+.nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-size:13px}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links .n{font-size:10px;color:var(--accent);font-family:monospace;margin-right:4px}
+@media(max-width:700px){.nav-links{gap:10px;font-size:11px}.nav-links .n{display:none}}
 
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
+.hero{min-height:100svh;position:relative;overflow:hidden;padding:120px 24px 50px;display:flex;align-items:center}
+.hero-inner{width:min(var(--max),100%);margin:auto;position:relative;z-index:3}
+.eyebrow{font:12px/1.2 monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2);margin:0 0 20px}
+.hero h1{font-size:clamp(4rem,12vw,10.5rem);max-width:1100px}
+.hero h1 span{display:block}
+.hero h1 .last{margin-left:9vw;color:var(--accent-2);font-style:italic}
+.hero-meta{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;margin-top:42px;max-width:920px}
+.lede{font:500 clamp(20px,2.2vw,29px)/1.15 Georgia,serif;max-width:26ch;margin:0}
+.sub{color:var(--muted);max-width:48ch;margin:14px 0 0}
+.tags{font:13px monospace;color:var(--muted);display:flex;flex-wrap:wrap;gap:0}
+.tags span:not(:last-child)::after{content:" · ";color:var(--line)}
+.tags .dance{color:var(--accent-2)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border:1px solid var(--ink);text-decoration:none;font-size:12px;border-radius:999px;transition:.2s ease}
+.btn.primary{background:var(--ink);color:var(--white)}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2)}
 
-  h1,h2,h3{
-    font-family:var(--serif);
-    font-weight:500;
-    color:var(--ink);
-    margin:0;
-    text-wrap:balance;
-  }
+.dancer-layer{position:fixed;z-index:1;pointer-events:none;inset:0;overflow:hidden;display:flex;justify-content:center;align-items:center;opacity:.26}
+.dancer-layer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,transparent 0 19%,rgba(238,238,232,.45) 42%,rgba(238,238,232,.88) 76%,var(--paper) 100%);z-index:2}
+.dancer-video{width:min(44vw,620px);height:92vh;object-fit:contain;filter:grayscale(1) contrast(1.12);mix-blend-mode:multiply;transform-origin:50% 50%;will-change:transform;transition:opacity .3s ease}
+.dancer-fallback{display:none;position:absolute;right:9vw;top:18vh;width:220px;height:66vh;opacity:.22}
+.dancer-fallback .person{position:absolute;inset:0}
+.dancer-fallback i{position:absolute;display:block;background:var(--ink);border-radius:50px;transform-origin:50% 0}
+.dancer-fallback .head{width:30px;height:30px;left:96px;top:5px;border-radius:50%}
+.dancer-fallback .torso{width:15px;height:170px;left:103px;top:40px;transform:rotate(8deg)}
+.dancer-fallback .a1{width:10px;height:135px;left:102px;top:55px;transform:rotate(52deg)}
+.dancer-fallback .a2{width:10px;height:145px;left:108px;top:56px;transform:rotate(-58deg)}
+.dancer-fallback .l1{width:13px;height:195px;left:105px;top:190px;transform:rotate(28deg)}
+.dancer-fallback .l2{width:13px;height:180px;left:105px;top:190px;transform:rotate(-22deg)}
+.dancer-fallback .label{position:absolute;left:0;bottom:0;font:10px monospace;letter-spacing:.06em;color:var(--muted)}
+@media(max-width:760px){
+ .dancer-layer{opacity:.14;align-items:flex-end}
+ .dancer-video{width:72vw;height:70vh}
+ .hero-meta{grid-template-columns:1fr;gap:20px}
+ .hero h1 .last{margin-left:5vw}
+}
 
-  p{ text-wrap:pretty; }
+.section{padding:110px 24px;position:relative;z-index:4}
+.wrap{max-width:var(--max);margin:auto}
+.section.dark{background:var(--black);color:var(--white)}
+.kicker{font:11px monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:18px}
+.section-title{font-size:clamp(3rem,7vw,7rem);max-width:900px}
+.rule{height:1px;background:currentColor;opacity:.15;margin:30px 0 50px}
 
-  a{ color:inherit; }
+.word-band{position:relative;z-index:4;overflow:hidden;background:var(--black);color:var(--white);padding:18px 0;border-block:1px solid #35352c}
+.word-track{display:flex;width:max-content;gap:55px;animation:marquee 28s linear infinite}
+.word-track span{font:900 clamp(3rem,8vw,7rem)/.86 Georgia,serif;text-transform:uppercase;white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
-  .skip-link{
-    position:absolute; left:-999px; top:0;
-    background:var(--copper); color:#fff; padding:10px 16px;
-    z-index:200; border-radius:0 0 8px 0;
-  }
-  .skip-link:focus{ left:0; }
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:48px}
+.project{background:#181815;color:var(--white);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;min-height:480px;grid-column:span 6}
+.project.feature{grid-column:1/-1;min-height:520px;padding:34px}
+.project h3{font-size:clamp(30px,4vw,54px);margin:8px 0 15px}
+.project p{color:#c1c0b3;max-width:62ch}
+.project-visual{margin:auto 0 0;border:1px solid #35352d;background:#211f19;min-height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.project-visual svg{width:100%;display:block}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.stack span{font:10px monospace;color:#b5b3a3;border:1px solid #3d3c32;border-radius:10px;padding:4px 8px}
+.project-link{margin-top:20px;text-decoration:none;font-size:12px;color:#e2bb7f}
+@media(max-width:850px){.project,.project.feature{grid-column:1/-1}.project{min-height:420px}}
 
-  a:focus-visible, button:focus-visible, summary:focus-visible{
-    outline:2.5px solid var(--copper-deep);
-    outline-offset:3px;
-    border-radius:4px;
-  }
+.movement{overflow:hidden}
+.movement-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.movement-copy{max-width:650px}
+.movement-copy p{font-size:20px;color:#d0cfc2}
+.movement-caption{font:11px monospace;color:var(--dark-muted);text-transform:uppercase;letter-spacing:.08em}
+.dance-frame{position:relative;min-height:560px;border:1px solid #323229;overflow:hidden;background:linear-gradient(145deg,#151512,#1d1c18)}
+.dance-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);opacity:.68}
+.dance-frame .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(16,16,14,.8),transparent 55%)}
+.dance-frame .frame-label{position:absolute;left:18px;bottom:18px;font:11px monospace;color:#d7d5c8}
+@media(max-width:850px){.movement-layout{grid-template-columns:1fr}.dance-frame{min-height:430px}}
 
-  .wrap{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 28px;
-  }
+.skills{padding-bottom:30px}
+.skill-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);margin-top:50px}
+.skill{padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.skill:last-child{border-right:0}
+.skill h3{font:11px monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.skill ul{list-style:none;margin:0;padding:0;color:var(--muted);font-size:14px}
+.skill li{padding:3px 0}
+@media(max-width:850px){.skill-grid{grid-template-columns:repeat(2,1fr)}.skill:nth-child(2n){border-right:0}}
+@media(max-width:500px){.skill-grid{grid-template-columns:1fr}.skill{border-right:0}}
 
-  /* ---------- Header ---------- */
-  header.site{
-    position:sticky; top:0; z-index:50;
-    background:rgba(242,237,227,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--rule);
-  }
-  .site-nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 28px;
-    max-width:1120px; margin:0 auto;
-  }
-  .mark{
-    font-family:var(--serif); font-weight:600; font-size:1.1rem;
-    letter-spacing:0.01em; text-decoration:none;
-  }
-  .nav-links{
-    display:flex; gap:28px; list-style:none; margin:0; padding:0;
-    font-size:0.95rem;
-  }
-  .nav-links a{
-    text-decoration:none; color:var(--ink-soft);
-    padding:4px 2px; border-bottom:2px solid transparent;
-    transition:border-color 0.18s ease, color 0.18s ease;
-  }
-  .nav-links a:hover{ color:var(--ink); border-color:var(--copper); }
+.evidence{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:45px}
+.e-card{border:1px solid #35342b;border-radius:16px;padding:28px;background:#151512}
+.e-card h3{font-size:34px}
+.e-sub{font:11px monospace;color:#a9a79b;margin:7px 0 20px}
+.stat{display:flex;align-items:baseline;gap:8px;margin-bottom:16px}
+.stat strong{font:900 64px Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat span{color:#a9a79b}
+.data-row{border-top:1px solid #35342b;padding:11px 0;display:flex;justify-content:space-between;font-size:13px}
+.data-row:first-of-type{border-top:0}
+.data-row .mono{font-family:monospace;color:#c8c6b7}
+@media(max-width:760px){.evidence{grid-template-columns:1fr}}
 
-  @media (max-width:640px){
-    .nav-links{ gap:16px; font-size:0.85rem; }
-  }
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.about-copy p{font-size:18px;color:var(--muted);max-width:55ch}
+.about-list{border-top:1px solid var(--line);margin-top:26px}
+.about-list div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}
+.about-list span:first-child{font-family:monospace;color:var(--accent)}
+.about-collage{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.media-slot{aspect-ratio:4/5;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font:10px monospace;position:relative;overflow:hidden}
+.media-slot img{width:100%;height:100%;object-fit:cover}
+.media-slot:first-child{transform:translateY(18px) rotate(-1deg)}
+.media-slot:last-child{transform:translateY(-15px) rotate(1deg)}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}.media-slot{transform:none!important}}
 
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:76px 0 64px;
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:48px;
-    align-items:center;
-  }
-  @media (max-width:860px){
-    .hero{ grid-template-columns:1fr; padding:52px 0 40px; }
-  }
-  .hero-eyebrow{
-    font-family:var(--mono); font-size:0.8rem; color:var(--copper-deep);
-    letter-spacing:0.02em; margin-bottom:14px;
-  }
-  .hero h1{
-    font-size:clamp(2.6rem, 5.5vw, 4.2rem);
-    line-height:1.03;
-    margin-bottom:18px;
-  }
-  .hero .role{
-    font-family:var(--mono); font-size:0.95rem; color:var(--ink-soft);
-    margin-bottom:22px;
-  }
-  .hero p.lede{
-    font-size:1.15rem; color:var(--ink-soft); max-width:46ch;
-    margin-bottom:30px;
-  }
-  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:11px 20px; border-radius:999px;
-    text-decoration:none; font-size:0.95rem; font-weight:500;
-    border:1.5px solid var(--ink);
-    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
-  }
-  .btn.primary{ background:var(--ink); color:var(--paper); }
-  .btn.primary:hover{ background:var(--copper-deep); border-color:var(--copper-deep); transform:translateY(-1px); }
-  .btn.ghost{ background:transparent; color:var(--ink); }
-  .btn.ghost:hover{ background:var(--ink); color:var(--paper); transform:translateY(-1px); }
-  .btn svg{ width:16px; height:16px; flex:none; }
+.contact{min-height:72vh;display:flex;align-items:center}
+.contact h2{font-size:clamp(4rem,10vw,9rem);max-width:1000px}
+.contact p{font-size:20px;color:#bab8aa;max-width:55ch}
+.contact-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.contact .btn{border-color:#d8d6ca;color:var(--white)}
+.contact .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--black)}
+footer{position:relative;z-index:4;background:var(--paper);border-top:1px solid var(--line);padding:28px 24px;font-size:12px;color:var(--muted)}
+.footer-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-links{display:flex;gap:14px}
+.footer-links a{text-decoration:none}
 
-  .hero-figure{ position:relative; }
-  .hero-figure svg{ width:100%; height:auto; display:block; }
-  .trace-path{
-    stroke-dasharray:900; stroke-dashoffset:900;
-    animation:draw 1.6s ease-out 0.2s forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  .hero-figure .tick{ opacity:0; animation:fadein 0.5s ease forwards; }
-  .hero-figure .tick:nth-of-type(1){ animation-delay:1.5s; }
-  .hero-figure .tick:nth-of-type(2){ animation-delay:1.65s; }
-  .hero-figure .tick:nth-of-type(3){ animation-delay:1.8s; }
-  @keyframes fadein{ to{ opacity:1; } }
-
-  /* ---------- Section shell ---------- */
-  section{ padding:70px 0; border-top:1px solid var(--rule); }
-  section:first-of-type{ border-top:none; }
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; margin-bottom:38px; flex-wrap:wrap;
-  }
-  .section-head h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
-  .section-head .kicker{
-    font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft); max-width:34ch;
-  }
-
-  /* ---------- Work ---------- */
-  .work-grid{
-    display:grid; grid-template-columns:repeat(6,1fr); gap:20px;
-  }
-  .proj{
-    background:var(--panel); color:var(--panel-ink);
-    border-radius:var(--radius-outer);
-    padding:28px;
-    display:flex; flex-direction:column; gap:14px;
-    grid-column:span 3;
-  }
-  .proj.feature{ grid-column:span 6; padding:36px; }
-  .proj.small{ grid-column:span 2; }
-  @media (max-width:860px){
-    .work-grid{ grid-template-columns:1fr; }
-    .proj, .proj.feature, .proj.small{ grid-column:1 / -1; }
-  }
-  .proj .tag{
-    font-family:var(--mono); font-size:0.75rem; color:#c9a577;
-    letter-spacing:0.03em;
-  }
-  .proj h3{ color:var(--panel-ink); font-size:1.4rem; }
-  .proj.feature h3{ font-size:1.9rem; }
-  .proj p.desc{ color:#cfc9ba; font-size:0.98rem; margin:0; }
-  .stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
-  .stack span{
-    font-family:var(--mono); font-size:0.72rem; color:#a89d84;
-    border:1px solid var(--panel-rule); border-radius:var(--radius-inner);
-    padding:3px 9px;
-  }
-  .proj-links{ display:flex; gap:16px; margin-top:auto; padding-top:6px; font-size:0.88rem; }
-  .proj-links a{ text-decoration:none; color:#e7c9a3; border-bottom:1px solid transparent; }
-  .proj-links a:hover{ border-color:#e7c9a3; }
-
-  details.case{
-    margin-top:6px; border-top:1px solid var(--panel-rule); padding-top:12px;
-  }
-  details.case summary{
-    cursor:pointer; font-family:var(--mono); font-size:0.8rem; color:#c9a577;
-    list-style:none; display:flex; align-items:center; gap:6px;
-  }
-  details.case summary::-webkit-details-marker{ display:none; }
-  details.case summary::before{ content:"+"; font-size:1rem; }
-  details.case[open] summary::before{ content:"–"; }
-  .case-body{ padding-top:14px; display:grid; gap:12px; }
-  .case-body .row{ display:grid; grid-template-columns:110px 1fr; gap:14px; }
-  .case-body .row dt{ font-family:var(--mono); font-size:0.72rem; color:#a89d84; text-transform:uppercase; letter-spacing:0.04em; }
-  .case-body .row dd{ margin:0; color:#dcd6c8; font-size:0.92rem; }
-  @media (max-width:600px){ .case-body .row{ grid-template-columns:1fr; gap:4px; } }
-
-  /* ---------- Engineering / skills ---------- */
-  .skills-grid{
-    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
-    border-top:1px solid var(--rule);
-  }
-  .skill-col{
-    padding:22px 20px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
-  }
-  .skill-col:last-child{ border-right:none; }
-  @media (max-width:860px){
-    .skills-grid{ grid-template-columns:repeat(2,1fr); }
-    .skill-col:nth-child(2n){ border-right:none; }
-  }
-  @media (max-width:480px){
-    .skills-grid{ grid-template-columns:1fr; }
-    .skill-col{ border-right:none; }
-  }
-  .skill-col h3{
-    font-family:var(--mono); font-size:0.78rem; text-transform:uppercase;
-    letter-spacing:0.05em; color:var(--copper-deep); margin-bottom:10px; font-weight:500;
-  }
-  .skill-col ul{ list-style:none; margin:0; padding:0; font-size:0.94rem; color:var(--ink-soft); }
-  .skill-col li{ padding:3px 0; }
-
-  /* ---------- Build & Solve ---------- */
-  .bs-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-  @media (max-width:800px){ .bs-grid{ grid-template-columns:1fr; } }
-  .bs-card{
-    border:1px solid var(--rule); border-radius:var(--radius-outer);
-    padding:28px; background:var(--paper-dim);
-  }
-  .bs-card h3{ font-size:1.25rem; margin-bottom:6px; }
-  .bs-card .sub{ font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); margin-bottom:20px; }
-  .repo-row{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:12px 0; border-top:1px solid var(--rule);
-  }
-  .repo-row:first-of-type{ border-top:none; }
-  .repo-name{ font-weight:500; }
-  .repo-meta{ font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); }
-  .repo-desc{ font-size:0.88rem; color:var(--ink-soft); margin:2px 0 0; }
-
-  .stat-row{ display:flex; align-items:baseline; gap:10px; margin-bottom:18px; }
-  .stat-num{ font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:2.4rem; color:var(--ink); }
-  .stat-label{ color:var(--ink-soft); font-size:0.95rem; }
-  .lang-row{ display:flex; gap:18px; margin-bottom:20px; flex-wrap:wrap; }
-  .lang-chip{ font-family:var(--mono); font-size:0.85rem; }
-  .lang-chip b{ font-variant-numeric:tabular-nums; color:var(--copper-deep); }
-  .tag-list{ display:flex; flex-wrap:wrap; gap:8px; }
-  .tag-list span{
-    font-family:var(--mono); font-size:0.76rem; color:var(--ink-soft);
-    border:1px solid var(--rule); border-radius:999px; padding:4px 10px;
-  }
-  .card-link{
-    display:inline-block; margin-top:20px; font-size:0.9rem; text-decoration:none;
-    border-bottom:1.5px solid var(--copper); color:var(--ink);
-  }
-
-  /* ---------- About / Education ---------- */
-  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:48px; }
-  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
-  .about-grid p{ font-size:1.05rem; color:var(--ink-soft); max-width:56ch; }
-  .beyond{ margin-top:22px; }
-  .beyond h3{ font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--copper-deep); margin-bottom:8px; font-weight:500; }
-  .beyond p{ font-size:0.95rem; margin:0; }
-
-  .edu-block{ border-left:2px solid var(--copper); padding-left:18px; margin-bottom:20px; }
-  .edu-block h3{ font-size:1.1rem; margin-bottom:2px; }
-  .edu-block .meta{ font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft); }
-  .edu-block.minor{ opacity:0.75; }
-
-  /* ---------- Contact ---------- */
-  .contact{ text-align:left; }
-  .contact h2{ font-size:clamp(2rem,4vw,2.8rem); margin-bottom:16px; max-width:16ch; }
-  .contact p.lede{ font-size:1.1rem; color:var(--ink-soft); max-width:52ch; margin-bottom:28px; }
-  .contact-links{ display:flex; flex-wrap:wrap; gap:14px; }
-
-  footer{
-    border-top:1px solid var(--rule); padding:36px 0; font-size:0.85rem; color:var(--ink-soft);
-  }
-  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  .footer-links{ display:flex; gap:16px; list-style:none; padding:0; margin:0; }
-  .footer-links a{ text-decoration:none; color:var(--ink-soft); }
-  .footer-links a:hover{ color:var(--ink); }
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ .dancer-video{transform:none!important}
+}
 </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site">
-  <nav class="site-nav" aria-label="Primary">
-    <a class="mark" href="#top">Pranjal Dadsena</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#build-log">Build Log</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">Pranjal Dadsena</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#work"><span class="n">01</span>Work</a></li>
+        <li><a href="#movement"><span class="n">02</span>Movement</a></li>
+        <li><a href="#build"><span class="n">03</span>Build</a></li>
+        <li><a href="#about"><span class="n">04</span>About</a></li>
+        <li><a href="#contact"><span class="n">05</span>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<main id="main">
-
-  <!-- HERO -->
-  <div id="top" class="wrap hero">
-    <div>
-      <p class="hero-eyebrow">Electronics &amp; Computer Engineering · VIT Chennai</p>
-      <h1>Pranjal Dadsena</h1>
-      <p class="role">Software — Embedded — DSP — Algorithms</p>
-      <p class="lede">I build things that sit at the edge of code and circuitry — an AI-oriented safety app, a MATLAB tuner that reads sound as frequency, a low-cost audio player wired from scratch.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#work">View work</a>
-        <a class="btn ghost" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-          GitHub
-        </a>
-        <a class="btn ghost" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.76v1.92h.07c.66-1.19 2.28-2.44 4.69-2.44 5.02 0 5.95 3.24 5.95 7.46V23h-4.96v-6.34c0-1.51-.03-3.46-2.15-3.46-2.16 0-2.49 1.65-2.49 3.35V23H8.5V8.98Z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn ghost" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 1.5 6 9l3.6 3.6L6 16.2l7.5 7.5 3-3-4.5-4.5 4.5-4.5-3-3-4.5 4.5L6 9l7.5-7.5-3-3Zm5.7 15.3-2.4 2.4 2.55 2.55a1.7 1.7 0 0 0 2.4-2.4l-2.55-2.55Z"/></svg>
-          LeetCode
-        </a>
-      </div>
+<div class="dancer-layer" aria-hidden="true">
+  <!-- Put your real contemporary-dance video here.
+       Recommended: 20–40s, full body, neutral/dark outfit, plain or transparent-looking background.
+       The script below ties playback position to page scroll. -->
+  <video id="dancerVideo" class="dancer-video" muted playsinline preload="metadata">
+    <source src="./assets/dancer.mp4" type="video/mp4">
+    <source src="./assets/dancer.webm" type="video/webm">
+  </video>
+  <div id="dancerFallback" class="dancer-fallback">
+    <div class="person">
+      <i class="head"></i><i class="torso"></i><i class="a1"></i><i class="a2"></i><i class="l1"></i><i class="l2"></i>
     </div>
+    <div class="label">ADD YOUR REAL DANCER VIDEO → assets/dancer.mp4</div>
+  </div>
+</div>
 
-    <div class="hero-figure" aria-hidden="true">
-      <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="420" height="260" rx="18" fill="var(--panel)"/>
-        <path class="trace-path" d="M20 190 L70 190 L90 90 L120 220 L150 60 L175 190 L210 130 L235 190 L270 190 L290 100 L315 190 L400 190"
-              fill="none" stroke="#e7c9a3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="20" y1="190" x2="400" y2="190" stroke="#3a352b" stroke-width="1"/>
-        <circle class="tick" cx="90" cy="90" r="4" fill="#b5591f"/>
-        <circle class="tick" cx="150" cy="60" r="4" fill="#b5591f"/>
-        <circle class="tick" cx="290" cy="100" r="4" fill="#b5591f"/>
-        <text x="20" y="230" font-family="IBM Plex Mono" font-size="11" fill="#a89d84">f0 ≈ 196.0 Hz — G3</text>
-      </svg>
+<main id="main">
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Electronics &amp; Computer Engineering · VIT Chennai · Open to internships</p>
+    <h1><span>PRANJAL</span><span class="last">DADSENA.</span></h1>
+
+    <div class="hero-meta">
+      <div>
+        <p class="lede">I build software, systems, signals, and things that move.</p>
+        <p class="sub">Engineering student working across software, embedded systems, DSP, algorithms — and dance.</p>
+      </div>
+      <div>
+        <div class="tags">
+          <span>Software</span><span>Embedded</span><span>DSP</span><span>Algorithms</span><span class="dance">Dance</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#work">View work ↓</a>
+          <a class="btn" href="./resume.pdf">Résumé ↗</a>
+          <a class="btn" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode ↗</a>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- SELECTED WORK -->
-  <section id="work" aria-labelledby="work-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="work-h">Selected work</h2>
-        <p class="kicker">Four projects, four different problems — software, AI, signal processing, and hardware.</p>
+<div class="word-band" aria-hidden="true">
+  <div class="word-track">
+    <span>BUILD</span><span>SIGNAL</span><span>SYSTEM</span><span>MOVE</span><span>BUILD</span><span>SIGNAL</span><span>SYSTEM</span><span>MOVE</span>
+    <span>BUILD</span><span>SIGNAL</span><span>SYSTEM</span><span>MOVE</span><span>BUILD</span><span>SIGNAL</span><span>SYSTEM</span><span>MOVE</span>
+  </div>
+</div>
+
+<section id="work" class="section">
+  <div class="wrap">
+    <p class="kicker">01 / Selected work</p>
+    <h2 class="section-title">Different problems. Same instinct: understand the system, then build it.</h2>
+
+    <div class="work-grid">
+      <article class="project feature">
+        <p class="kicker">AI · Civic Safety · Prototype</p>
+        <h3>JanRakshak AI</h3>
+        <p>A civic-safety application concept connecting citizen reporting with incident analysis, severity classification, and administrator workflows.</p>
+        <div class="project-visual">
+          <svg viewBox="0 0 900 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Report to analyse to classify to respond flow">
+            <rect width="900" height="230" fill="#211f19"/>
+            <g fill="none" stroke="#d6b06e" stroke-width="2">
+              <rect x="55" y="82" width="150" height="54" rx="8"/><rect x="260" y="82" width="150" height="54" rx="8"/>
+              <rect x="495" y="82" width="150" height="54" rx="8"/><rect x="700" y="82" width="150" height="54" rx="8"/>
+              <path d="M205 109h55M410 109h85M645 109h55"/>
+            </g>
+            <g fill="#ecece5" font-family="monospace" font-size="18" text-anchor="middle">
+              <text x="130" y="115">REPORT</text><text x="335" y="115">ANALYSE</text><text x="570" y="115">CLASSIFY</text><text x="775" y="115">RESPOND</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stack"><span>AI-oriented</span><span>Incident analysis</span><span>Voice interaction</span><span>Citizen + admin</span></div>
+      </article>
+
+      <article class="project">
+        <p class="kicker">MATLAB · DSP</p>
+        <h3>GUI Guitar Tuner</h3>
+        <p>Uses autocorrelation to estimate the fundamental frequency of an audio signal and compare it against target guitar notes.</p>
+        <div class="project-visual">
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized audio waveform">
+            <rect width="700" height="220" fill="#211f19"/>
+            <path d="M20 115 C70 115 75 55 115 55 S160 175 205 175 S250 82 300 82 S345 145 380 145 S430 100 470 100 S520 115 680 115" fill="none" stroke="#e4c889" stroke-width="3"/>
+            <line x1="20" y1="115" x2="680" y2="115" stroke="#47443a"/>
+            <text x="20" y="190" fill="#aaa99b" font-family="monospace" font-size="14">autocorrelation → fundamental frequency</text>
+          </svg>
+        </div>
+        <div class="stack"><span>MATLAB</span><span>DSP</span><span>Autocorrelation</span></div>
+      </article>
+
+      <article class="project">
+        <p class="kicker">Embedded · Audio</p>
+        <h3>DFPlayer Mini MP3 Player</h3>
+        <p>A compact audio playback build around the DFPlayer Mini and an amplifier stage, designed around practical component constraints.</p>
+        <div class="project-visual">
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Embedded audio signal chain">
+            <rect width="700" height="220" fill="#211f19"/>
+            <g fill="none" stroke="#d6b06e" stroke-width="2">
+              <rect x="70" y="72" width="150" height="70" rx="7"/><rect x="275" y="72" width="150" height="70" rx="7"/><rect x="480" y="72" width="150" height="70" rx="7"/>
+              <path d="M220 107h55M425 107h55"/>
+            </g>
+            <g fill="#ecece5" font-family="monospace" font-size="16" text-anchor="middle">
+              <text x="145" y="111">DFPLAYER</text><text x="350" y="111">AMPLIFIER</text><text x="555" y="111">OUTPUT</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stack"><span>DFPlayer Mini</span><span>Audio</span><span>Circuit</span></div>
+      </article>
+
+      <article class="project feature">
+        <p class="kicker">Frontend · Interaction</p>
+        <h3>Dance / Choreography Platform</h3>
+        <p>A responsive interface concept for organising choreography content, counts, formations, and movement-based interaction.</p>
+        <div class="project-visual">
+          <svg viewBox="0 0 900 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Formation and movement diagram">
+            <rect width="900" height="230" fill="#211f19"/>
+            <g fill="#d6b06e">
+              <circle cx="130" cy="70" r="8"/><circle cx="240" cy="165" r="8"/><circle cx="390" cy="85" r="8"/>
+              <circle cx="540" cy="165" r="8"/><circle cx="690" cy="80" r="8"/><circle cx="790" cy="150" r="8"/>
+            </g>
+            <path d="M130 70 Q185 130 240 165 T390 85 T540 165 T690 80 T790 150" fill="none" stroke="#4a4e9c" stroke-width="2" stroke-dasharray="7 8"/>
+            <g fill="#aaa99b" font-family="monospace" font-size="13">
+              <text x="118" y="50">01</text><text x="228" y="190">02</text><text x="378" y="65">03</text><text x="528" y="190">04</text><text x="678" y="60">05</text><text x="778" y="175">06</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stack"><span>Responsive UI</span><span>Interaction design</span><span>Movement</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="movement" class="section dark movement">
+  <div class="wrap movement-layout">
+    <div class="movement-copy">
+      <p class="kicker">02 / Movement</p>
+      <h2 class="section-title">The other practice.</h2>
+      <p>Dance and choreography are a serious part of my life. Repetition, timing, formation, memory, and precision show up in rehearsal — and, in quieter ways, in how I approach engineering problems.</p>
+      <p class="movement-caption">Use your real performance media here.</p>
+    </div>
+    <div class="dance-frame">
+      <video id="movementVideo" muted playsinline preload="metadata">
+        <source src="./assets/dancer.mp4" type="video/mp4">
+        <source src="./assets/dancer.webm" type="video/webm">
+      </video>
+      <div class="overlay"></div>
+      <div class="frame-label">CONTEMPORARY / CHOREOGRAPHY / PRACTICE</div>
+    </div>
+  </div>
+</section>
+
+<section id="build" class="section skills">
+  <div class="wrap">
+    <p class="kicker">03 / How I build</p>
+    <h2 class="section-title">Software, signals, systems, fundamentals.</h2>
+    <div class="skill-grid">
+      <div class="skill"><h3>Software</h3><ul><li>C</li><li>C++</li><li>Java</li><li>Python</li><li>JavaScript</li></ul></div>
+      <div class="skill"><h3>Systems</h3><ul><li>Embedded systems</li><li>Audio systems</li><li>Circuit prototyping</li></ul></div>
+      <div class="skill"><h3>Signals</h3><ul><li>MATLAB</li><li>Digital signal processing</li><li>Autocorrelation</li><li>Audio analysis</li></ul></div>
+      <div class="skill"><h3>Fundamentals</h3><ul><li>Data structures</li><li>Algorithms</li><li>OOP</li><li>Problem solving</li></ul></div>
+      <div class="skill"><h3>Frontend</h3><ul><li>HTML / CSS</li><li>JavaScript</li><li>Responsive UI</li><li>Component-based development</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <p class="kicker">04 / Evidence</p>
+    <h2 class="section-title">Build. Solve. Keep going.</h2>
+    <div class="evidence">
+      <div class="e-card">
+        <h3>GitHub</h3>
+        <p class="e-sub">github.com/pranjaldadsena</p>
+        <div id="repoList"><div class="data-row"><span>Loading public repositories…</span><span class="mono">...</span></div></div>
+        <a class="btn" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener" style="margin-top:18px">View GitHub ↗</a>
       </div>
-
-      <div class="work-grid">
-
-        <article class="proj feature">
-          <p class="tag">AI · Civic Safety · Prototype</p>
-          <h3>JanRakshak AI</h3>
-          <p class="desc">A concept platform for detecting, analysing, and managing public-safety incidents — with separate citizen and administrator workflows, incident analysis, voice interaction, and severity classification.</p>
-          <div class="stack">
-            <span>AI-oriented</span><span>Incident classification</span><span>Voice interaction</span><span>Citizen + admin workflows</span>
-          </div>
-          <details class="case">
-            <summary>Read the case study</summary>
-            <dl class="case-body">
-              <div class="row"><dt>Problem</dt><dd>Public-safety incidents are reported inconsistently, and there's no single workflow connecting a citizen's report to an administrator's response.</dd></div>
-              <div class="row"><dt>Approach</dt><dd>Split the product into two workflows — a citizen-facing side for reporting and safety information, and an administrator side for triage — connected by incident analysis and severity classification.</dd></div>
-              <div class="row"><dt>Built</dt><dd>The core application structure covering both workflows, voice interaction for reporting, and a live safety-statistics view.</dd></div>
-              <div class="row"><dt>Status</dt><dd>Prototype / concept — not a deployed or government-adopted platform.</dd></div>
-              <div class="row"><dt>Learned</dt><dd>Designing for two very different users in one product forces much clearer thinking about what each screen is actually for.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="proj small">
-          <p class="tag">MATLAB · DSP</p>
-          <h3>GUI Guitar Tuner</h3>
-          <p class="desc">A graphical tuning app that uses autocorrelation to find the fundamental frequency of an audio signal and compares it against target guitar notes.</p>
-          <div class="stack"><span>Autocorrelation</span><span>DSP</span><span>GUI</span></div>
-          <details class="case">
-            <summary>Read the case study</summary>
-            <dl class="case-body">
-              <div class="row"><dt>Problem</dt><dd>How do you estimate the fundamental frequency of a guitar note from raw audio?</dd></div>
-              <div class="row"><dt>Approach</dt><dd>Autocorrelation to find periodicity in the signal, then map the detected frequency to the nearest target note.</dd></div>
-              <div class="row"><dt>Built</dt><dd>A MATLAB GUI that visualises the detected frequency against the target and shows how far off it is.</dd></div>
-              <div class="row"><dt>Learned</dt><dd>Signal processing stops being abstract the moment it becomes something you can tune a real string against.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="proj small">
-          <p class="tag">Embedded · Audio</p>
-          <h3>DFPlayer Mini MP3 Player</h3>
-          <p class="desc">A compact, low-cost audio playback system built around the DFPlayer Mini module and an amplifier stage.</p>
-          <div class="stack"><span>DFPlayer Mini</span><span>Amplifier stage</span><span>Circuit design</span></div>
-          <details class="case">
-            <summary>Read the case study</summary>
-            <dl class="case-body">
-              <div class="row"><dt>Problem</dt><dd>Build audio playback on a tight component budget, without a full microcontroller-driven audio pipeline.</dd></div>
-              <div class="row"><dt>Approach</dt><dd>Use the DFPlayer Mini for playback and pair it with an amplifier stage, working within real cost and component constraints.</dd></div>
-              <div class="row"><dt>Built</dt><dd>Component selection, wiring, and the amplifier circuit connecting playback to output.</dd></div>
-              <div class="row"><dt>Learned</dt><dd>Constraints on cost and parts change the design as much as the electronics theory does.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="proj small" style="grid-column:span 2;">
-          <p class="tag">Frontend · Interaction</p>
-          <h3>Dance / Choreography Platform</h3>
-          <p class="desc">A web interface concept for organising choreography and dance-related content, focused on responsive layout and visual hierarchy.</p>
-          <div class="stack"><span>Responsive layout</span><span>Interaction design</span></div>
-          <details class="case">
-            <summary>Read the case study</summary>
-            <dl class="case-body">
-              <div class="row"><dt>Problem</dt><dd>Choreography content — steps, counts, formations — is hard to browse in a plain list.</dd></div>
-              <div class="row"><dt>Approach</dt><dd>Build a layout that gives visual hierarchy to different content types, and keeps interaction simple across screen sizes.</dd></div>
-              <div class="row"><dt>Built</dt><dd>A responsive interface with interactive components for browsing dance-related content.</dd></div>
-              <div class="row"><dt>Learned</dt><dd>Interaction design for movement-based content needs different pacing than a typical content site.</dd></div>
-            </dl>
-          </details>
-        </article>
-
+      <div class="e-card">
+        <h3>LeetCode</h3>
+        <p class="e-sub">leetcode.com/u/pranjaldadsena/</p>
+        <div class="stat"><strong id="lcSolved">—</strong><span>problems solved</span></div>
+        <div id="lcDetails">
+          <div class="data-row"><span>Public profile</span><span class="mono">live link</span></div>
+          <div class="data-row"><span>Source of truth</span><span class="mono">LeetCode</span></div>
+        </div>
+        <a class="btn" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener" style="margin-top:18px">View LeetCode ↗</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ENGINEERING / SKILLS -->
-  <section aria-labelledby="skills-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="skills-h">How I build</h2>
-        <p class="kicker">Grouped by what each skill is actually for, not a wall of pills.</p>
+<section id="about" class="section">
+  <div class="wrap">
+    <p class="kicker">05 / About</p>
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2 class="section-title">Engineer first. Dancer too.</h2>
+        <p>I’m an Electronics and Computer Engineering student at VIT Chennai. I like projects that cross boundaries — software that talks to systems, signals that become useful tools, and hardware that has to work outside a textbook.</p>
+        <p>Outside engineering, I dance and choreograph. It gives me another way to think about timing, repetition, composition, and precision.</p>
+        <div class="about-list">
+          <div><span>EDUCATION</span><span>VIT Chennai · B.Tech ECE · 2024–Present</span></div>
+          <div><span>FOCUS</span><span>Software · Embedded · DSP · Algorithms</span></div>
+          <div><span>OUTSIDE CODE</span><span>Dance · Choreography · Beatboxing · Sketching</span></div>
+        </div>
+      </div>
+      <div class="about-collage">
+        <div class="media-slot"><span>REAL PORTRAIT<br>replace with your photo</span></div>
+        <div class="media-slot"><span>REAL DANCE PHOTO<br>replace with your photo</span></div>
+        <div class="media-slot"><span>REAL PROJECT PHOTO<br>replace with your photo</span></div>
+        <div class="media-slot"><span>REAL PERFORMANCE STILL<br>replace with your photo</span></div>
       </div>
     </div>
-    <div class="wrap" style="padding:0;">
-      <div class="skills-grid">
-        <div class="skill-col">
-          <h3>Software</h3>
-          <ul><li>C</li><li>C++</li><li>Java</li><li>Python</li><li>JavaScript</li></ul>
-        </div>
-        <div class="skill-col">
-          <h3>Systems</h3>
-          <ul><li>Embedded systems</li><li>Audio systems</li><li>Circuit prototyping</li></ul>
-        </div>
-        <div class="skill-col">
-          <h3>Signals</h3>
-          <ul><li>MATLAB</li><li>Digital signal processing</li><li>Autocorrelation</li><li>Audio analysis</li></ul>
-        </div>
-        <div class="skill-col">
-          <h3>Fundamentals</h3>
-          <ul><li>Data structures</li><li>Algorithms</li><li>OOP</li><li>Problem solving</li></ul>
-        </div>
-        <div class="skill-col">
-          <h3>Frontend</h3>
-          <ul><li>HTML / CSS</li><li>JavaScript</li><li>Responsive UI</li><li>Component-based dev</li></ul>
-        </div>
-      </div>
+  </div>
+</section>
+
+<section id="contact" class="section dark contact">
+  <div class="wrap">
+    <p class="kicker">06 / Contact</p>
+    <h2>Let's build something.</h2>
+    <p>Open to internships, placements, software opportunities, embedded work, and interesting projects.</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:pranjaldadsena@gmail.com">Email me ↗</a>
+      <a class="btn" href="./resume.pdf">Résumé ↗</a>
+      <a class="btn" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode ↗</a>
     </div>
-  </section>
-
-  <!-- BUILD LOG + PROBLEM SOLVING -->
-  <section id="build-log" aria-labelledby="bl-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="bl-h">Build log &amp; problem solving</h2>
-        <p class="kicker">I build real things, and sharpen the fundamentals behind them.</p>
-      </div>
-
-      <div class="bs-grid">
-        <div class="bs-card">
-          <h3>GitHub</h3>
-          <p class="sub">github.com/pranjaldadsena</p>
-          <div class="repo-row">
-            <div>
-              <div class="repo-name">leetcode-submissions-</div>
-              <p class="repo-desc">All the submissions I'll do until a job.</p>
-            </div>
-            <div class="repo-meta">Java · ★ 1</div>
-          </div>
-          <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:16px;">More project repositories are on the way — this section fills in as the profile grows.</p>
-          <a class="card-link" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">View full profile →</a>
-        </div>
-
-        <div class="bs-card">
-          <h3>LeetCode</h3>
-          <p class="sub">Practising algorithms alongside building real projects.</p>
-          <div class="stat-row">
-            <span class="stat-num">57</span>
-            <span class="stat-label">problems solved</span>
-          </div>
-          <div class="lang-row">
-            <span class="lang-chip"><b>42</b> Java</span>
-            <span class="lang-chip"><b>11</b> C++</span>
-            <span class="lang-chip"><b>4</b> C</span>
-          </div>
-          <div class="tag-list">
-            <span>Array ×42</span><span>Hash Table ×12</span><span>Math ×12</span>
-            <span>Two Pointers ×12</span><span>Sorting ×11</span><span>Backtracking ×8</span>
-            <span>Dynamic Programming ×8</span>
-          </div>
-          <a class="card-link" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">View full profile →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT + EDUCATION -->
-  <section id="about" aria-labelledby="about-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="about-h">About</h2>
-      </div>
-      <div class="about-grid">
-        <div>
-          <p>I'm an Electronics and Computer Engineering student at VIT Chennai. Most of what I build sits at the intersection of software, systems, signals, and hardware — an AI-oriented app one week, a DSP problem in MATLAB the next, an amplifier circuit after that.</p>
-          <p>I like projects that don't stay inside one discipline. Figuring out how a signal turns into a note, or how a citizen report turns into an administrator's dashboard, usually means moving between code and the physical constraints around it.</p>
-          <div class="beyond">
-            <h3>Beyond code</h3>
-            <p>Dance and choreography, beatboxing, and sketching — the same instinct for pattern and timing shows up in different places.</p>
-          </div>
-        </div>
-        <div>
-          <div class="edu-block">
-            <h3>Vellore Institute of Technology, Chennai</h3>
-            <p class="meta">B.Tech, Electronics and Computer Engineering · 2024 – Present</p>
-          </div>
-          <div class="edu-block minor">
-            <h3>Vidya Jyoti School, Jagdalpur</h3>
-            <p class="meta">Class 12 — 87% · Class 10 — 80%</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" aria-labelledby="contact-h">
-    <div class="wrap contact">
-      <h2 id="contact-h">Let's talk about internships, roles, or a project.</h2>
-      <p class="lede">I'm looking for internships and entry-level roles across software, embedded systems, and frontend — happy to talk about any of the projects above in more depth.</p>
-      <div class="contact-links">
-        <a class="btn primary" href="mailto:pranjaldadsena@gmail.com">Email me</a>
-        <a class="btn ghost" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn ghost" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn ghost" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode</a>
-      </div>
-    </div>
-  </section>
-
+  </div>
+</section>
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div>
-      <strong>Pranjal Dadsena</strong> — Electronics &amp; Computer Engineering, VIT Chennai
+  <div class="footer-inner">
+    <div><strong>Pranjal Dadsena</strong> — Electronics &amp; Computer Engineering, VIT Chennai</div>
+    <div class="footer-links">
+      <a href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode</a>
+      <a href="mailto:pranjaldadsena@gmail.com">Email</a>
     </div>
-    <ul class="footer-links">
-      <li><a href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode</a></li>
-      <li><a href="mailto:pranjaldadsena@gmail.com">Email</a></li>
-    </ul>
   </div>
 </footer>
 
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dancer = document.getElementById('dancerVideo');
+  const fallback = document.getElementById('dancerFallback');
+  const movementVideo = document.getElementById('movementVideo');
+
+  function showFallback() {
+    if (dancer) dancer.style.display = 'none';
+    if (fallback) fallback.style.display = 'block';
+  }
+
+  if (dancer) {
+    dancer.addEventListener('error', showFallback, {once:true});
+    dancer.addEventListener('loadedmetadata', () => {
+      if (reduceMotion) return;
+      dancer.pause();
+      dancer.currentTime = 0;
+    });
+
+    let raf = 0;
+    const update = () => {
+      const doc = document.documentElement;
+      const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const p = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+
+      if (!reduceMotion && Number.isFinite(dancer.duration) && dancer.duration > 0) {
+        dancer.currentTime = p * Math.max(0, dancer.duration - 0.05);
+      }
+
+      // Rotate the background dancer subtly through the page.
+      // The real dance motion comes from the video frames; this adds a controlled 360° visual turn.
+      const rotation = p * 360;
+      const scale = 1.03 + Math.sin(p * Math.PI * 2) * 0.025;
+      dancer.style.transform = `rotateY(${rotation}deg) scale(${scale})`;
+
+      if (movementVideo && !reduceMotion && movementVideo.readyState >= 2 && Number.isFinite(movementVideo.duration)) {
+        const mv = document.querySelector('#movement');
+        const rect = mv.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+        movementVideo.currentTime = progress * Math.max(0, movementVideo.duration - 0.05);
+      }
+
+      raf = requestAnimationFrame(update);
+    };
+    raf = requestAnimationFrame(update);
+    window.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else raf = requestAnimationFrame(update);
+    });
+  }
+
+  // Public GitHub repositories; no token required.
+  const repoList = document.getElementById('repoList');
+  fetch('https://api.github.com/users/pranjaldadsena/repos?sort=updated&per_page=4')
+    .then(r => { if (!r.ok) throw new Error('GitHub unavailable'); return r.json(); })
+    .then(repos => {
+      if (!repoList) return;
+      if (!Array.isArray(repos) || repos.length === 0) {
+        repoList.innerHTML = '<div class="data-row"><span>No public repositories yet.</span><span class="mono">github</span></div>';
+        return;
+      }
+      repoList.innerHTML = repos.map(repo => `
+        <a class="data-row" href="${repo.html_url}" target="_blank" rel="noopener" style="text-decoration:none">
+          <span>${String(repo.name).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}</span>
+          <span class="mono">${repo.language || '—'} · ★ ${repo.stargazers_count ?? 0}</span>
+        </a>`).join('');
+    })
+    .catch(() => {
+      if (repoList) repoList.innerHTML = '<div class="data-row"><span>Public GitHub data unavailable right now.</span><span class="mono">fallback</span></div>';
+    });
+
+  // Do not fabricate LeetCode stats. The profile is linked directly.
+  const lcSolved = document.getElementById('lcSolved');
+  if (lcSolved) lcSolved.textContent = '—';
+})();
+</script>
 </body>
 </html>
