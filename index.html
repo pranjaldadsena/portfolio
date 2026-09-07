@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranjal Dadsena — Electronics &amp; Computer Engineering Student</title>
+<meta name="description" content="Pranjal Dadsena is an Electronics and Computer Engineering student at VIT Chennai building software, embedded systems, and signal-driven projects.">
+<meta property="og:title" content="Pranjal Dadsena — Electronics &amp; Computer Engineering Student">
+<meta property="og:description" content="Software, embedded systems, and signal-driven projects from a VIT Chennai ECE student.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f2ede3;
+    --paper-dim:#e9e2d3;
+    --ink:#1c1a15;
+    --ink-soft:#514c3f;
+    --rule:#d9d0bb;
+    --copper:#b5591f;
+    --copper-deep:#8f4315;
+    --signal:#3c5a4e;
+    --panel:#191712;
+    --panel-ink:#f2ede3;
+    --panel-rule:#3a352b;
+    --radius-outer:18px;
+    --radius-inner:12px;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'IBM Plex Sans', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    font-weight:500;
+    color:var(--ink);
+    margin:0;
+    text-wrap:balance;
+  }
+
+  p{ text-wrap:pretty; }
+
+  a{ color:inherit; }
+
+  .skip-link{
+    position:absolute; left:-999px; top:0;
+    background:var(--copper); color:#fff; padding:10px 16px;
+    z-index:200; border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2.5px solid var(--copper-deep);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,237,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .site-nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1120px; margin:0 auto;
+  }
+  .mark{
+    font-family:var(--serif); font-weight:600; font-size:1.1rem;
+    letter-spacing:0.01em; text-decoration:none;
+  }
+  .nav-links{
+    display:flex; gap:28px; list-style:none; margin:0; padding:0;
+    font-size:0.95rem;
+  }
+  .nav-links a{
+    text-decoration:none; color:var(--ink-soft);
+    padding:4px 2px; border-bottom:2px solid transparent;
+    transition:border-color 0.18s ease, color 0.18s ease;
+  }
+  .nav-links a:hover{ color:var(--ink); border-color:var(--copper); }
+
+  @media (max-width:640px){
+    .nav-links{ gap:16px; font-size:0.85rem; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 64px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero{ grid-template-columns:1fr; padding:52px 0 40px; }
+  }
+  .hero-eyebrow{
+    font-family:var(--mono); font-size:0.8rem; color:var(--copper-deep);
+    letter-spacing:0.02em; margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.5vw, 4.2rem);
+    line-height:1.03;
+    margin-bottom:18px;
+  }
+  .hero .role{
+    font-family:var(--mono); font-size:0.95rem; color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  .hero p.lede{
+    font-size:1.15rem; color:var(--ink-soft); max-width:46ch;
+    margin-bottom:30px;
+  }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:999px;
+    text-decoration:none; font-size:0.95rem; font-weight:500;
+    border:1.5px solid var(--ink);
+    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .btn.primary{ background:var(--ink); color:var(--paper); }
+  .btn.primary:hover{ background:var(--copper-deep); border-color:var(--copper-deep); transform:translateY(-1px); }
+  .btn.ghost{ background:transparent; color:var(--ink); }
+  .btn.ghost:hover{ background:var(--ink); color:var(--paper); transform:translateY(-1px); }
+  .btn svg{ width:16px; height:16px; flex:none; }
+
+  .hero-figure{ position:relative; }
+  .hero-figure svg{ width:100%; height:auto; display:block; }
+  .trace-path{
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 1.6s ease-out 0.2s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .hero-figure .tick{ opacity:0; animation:fadein 0.5s ease forwards; }
+  .hero-figure .tick:nth-of-type(1){ animation-delay:1.5s; }
+  .hero-figure .tick:nth-of-type(2){ animation-delay:1.65s; }
+  .hero-figure .tick:nth-of-type(3){ animation-delay:1.8s; }
+  @keyframes fadein{ to{ opacity:1; } }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:70px 0; border-top:1px solid var(--rule); }
+  section:first-of-type{ border-top:none; }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:38px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
+  .section-head .kicker{
+    font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft); max-width:34ch;
+  }
+
+  /* ---------- Work ---------- */
+  .work-grid{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:20px;
+  }
+  .proj{
+    background:var(--panel); color:var(--panel-ink);
+    border-radius:var(--radius-outer);
+    padding:28px;
+    display:flex; flex-direction:column; gap:14px;
+    grid-column:span 3;
+  }
+  .proj.feature{ grid-column:span 6; padding:36px; }
+  .proj.small{ grid-column:span 2; }
+  @media (max-width:860px){
+    .work-grid{ grid-template-columns:1fr; }
+    .proj, .proj.feature, .proj.small{ grid-column:1 / -1; }
+  }
+  .proj .tag{
+    font-family:var(--mono); font-size:0.75rem; color:#c9a577;
+    letter-spacing:0.03em;
+  }
+  .proj h3{ color:var(--panel-ink); font-size:1.4rem; }
+  .proj.feature h3{ font-size:1.9rem; }
+  .proj p.desc{ color:#cfc9ba; font-size:0.98rem; margin:0; }
+  .stack{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+  .stack span{
+    font-family:var(--mono); font-size:0.72rem; color:#a89d84;
+    border:1px solid var(--panel-rule); border-radius:var(--radius-inner);
+    padding:3px 9px;
+  }
+  .proj-links{ display:flex; gap:16px; margin-top:auto; padding-top:6px; font-size:0.88rem; }
+  .proj-links a{ text-decoration:none; color:#e7c9a3; border-bottom:1px solid transparent; }
+  .proj-links a:hover{ border-color:#e7c9a3; }
+
+  details.case{
+    margin-top:6px; border-top:1px solid var(--panel-rule); padding-top:12px;
+  }
+  details.case summary{
+    cursor:pointer; font-family:var(--mono); font-size:0.8rem; color:#c9a577;
+    list-style:none; display:flex; align-items:center; gap:6px;
+  }
+  details.case summary::-webkit-details-marker{ display:none; }
+  details.case summary::before{ content:"+"; font-size:1rem; }
+  details.case[open] summary::before{ content:"–"; }
+  .case-body{ padding-top:14px; display:grid; gap:12px; }
+  .case-body .row{ display:grid; grid-template-columns:110px 1fr; gap:14px; }
+  .case-body .row dt{ font-family:var(--mono); font-size:0.72rem; color:#a89d84; text-transform:uppercase; letter-spacing:0.04em; }
+  .case-body .row dd{ margin:0; color:#dcd6c8; font-size:0.92rem; }
+  @media (max-width:600px){ .case-body .row{ grid-template-columns:1fr; gap:4px; } }
+
+  /* ---------- Engineering / skills ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    border-top:1px solid var(--rule);
+  }
+  .skill-col{
+    padding:22px 20px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  }
+  .skill-col:last-child{ border-right:none; }
+  @media (max-width:860px){
+    .skills-grid{ grid-template-columns:repeat(2,1fr); }
+    .skill-col:nth-child(2n){ border-right:none; }
+  }
+  @media (max-width:480px){
+    .skills-grid{ grid-template-columns:1fr; }
+    .skill-col{ border-right:none; }
+  }
+  .skill-col h3{
+    font-family:var(--mono); font-size:0.78rem; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--copper-deep); margin-bottom:10px; font-weight:500;
+  }
+  .skill-col ul{ list-style:none; margin:0; padding:0; font-size:0.94rem; color:var(--ink-soft); }
+  .skill-col li{ padding:3px 0; }
+
+  /* ---------- Build & Solve ---------- */
+  .bs-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media (max-width:800px){ .bs-grid{ grid-template-columns:1fr; } }
+  .bs-card{
+    border:1px solid var(--rule); border-radius:var(--radius-outer);
+    padding:28px; background:var(--paper-dim);
+  }
+  .bs-card h3{ font-size:1.25rem; margin-bottom:6px; }
+  .bs-card .sub{ font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); margin-bottom:20px; }
+  .repo-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:12px 0; border-top:1px solid var(--rule);
+  }
+  .repo-row:first-of-type{ border-top:none; }
+  .repo-name{ font-weight:500; }
+  .repo-meta{ font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); }
+  .repo-desc{ font-size:0.88rem; color:var(--ink-soft); margin:2px 0 0; }
+
+  .stat-row{ display:flex; align-items:baseline; gap:10px; margin-bottom:18px; }
+  .stat-num{ font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:2.4rem; color:var(--ink); }
+  .stat-label{ color:var(--ink-soft); font-size:0.95rem; }
+  .lang-row{ display:flex; gap:18px; margin-bottom:20px; flex-wrap:wrap; }
+  .lang-chip{ font-family:var(--mono); font-size:0.85rem; }
+  .lang-chip b{ font-variant-numeric:tabular-nums; color:var(--copper-deep); }
+  .tag-list{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag-list span{
+    font-family:var(--mono); font-size:0.76rem; color:var(--ink-soft);
+    border:1px solid var(--rule); border-radius:999px; padding:4px 10px;
+  }
+  .card-link{
+    display:inline-block; margin-top:20px; font-size:0.9rem; text-decoration:none;
+    border-bottom:1.5px solid var(--copper); color:var(--ink);
+  }
+
+  /* ---------- About / Education ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:48px; }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ font-size:1.05rem; color:var(--ink-soft); max-width:56ch; }
+  .beyond{ margin-top:22px; }
+  .beyond h3{ font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--copper-deep); margin-bottom:8px; font-weight:500; }
+  .beyond p{ font-size:0.95rem; margin:0; }
+
+  .edu-block{ border-left:2px solid var(--copper); padding-left:18px; margin-bottom:20px; }
+  .edu-block h3{ font-size:1.1rem; margin-bottom:2px; }
+  .edu-block .meta{ font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft); }
+  .edu-block.minor{ opacity:0.75; }
+
+  /* ---------- Contact ---------- */
+  .contact{ text-align:left; }
+  .contact h2{ font-size:clamp(2rem,4vw,2.8rem); margin-bottom:16px; max-width:16ch; }
+  .contact p.lede{ font-size:1.1rem; color:var(--ink-soft); max-width:52ch; margin-bottom:28px; }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:14px; }
+
+  footer{
+    border-top:1px solid var(--rule); padding:36px 0; font-size:0.85rem; color:var(--ink-soft);
+  }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .footer-links{ display:flex; gap:16px; list-style:none; padding:0; margin:0; }
+  .footer-links a{ text-decoration:none; color:var(--ink-soft); }
+  .footer-links a:hover{ color:var(--ink); }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site">
+  <nav class="site-nav" aria-label="Primary">
+    <a class="mark" href="#top">Pranjal Dadsena</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#build-log">Build Log</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <div id="top" class="wrap hero">
+    <div>
+      <p class="hero-eyebrow">Electronics &amp; Computer Engineering · VIT Chennai</p>
+      <h1>Pranjal Dadsena</h1>
+      <p class="role">Software — Embedded — DSP — Algorithms</p>
+      <p class="lede">I build things that sit at the edge of code and circuitry — an AI-oriented safety app, a MATLAB tuner that reads sound as frequency, a low-cost audio player wired from scratch.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#work">View work</a>
+        <a class="btn ghost" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="btn ghost" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.76v1.92h.07c.66-1.19 2.28-2.44 4.69-2.44 5.02 0 5.95 3.24 5.95 7.46V23h-4.96v-6.34c0-1.51-.03-3.46-2.15-3.46-2.16 0-2.49 1.65-2.49 3.35V23H8.5V8.98Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn ghost" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 1.5 6 9l3.6 3.6L6 16.2l7.5 7.5 3-3-4.5-4.5 4.5-4.5-3-3-4.5 4.5L6 9l7.5-7.5-3-3Zm5.7 15.3-2.4 2.4 2.55 2.55a1.7 1.7 0 0 0 2.4-2.4l-2.55-2.55Z"/></svg>
+          LeetCode
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="420" height="260" rx="18" fill="var(--panel)"/>
+        <path class="trace-path" d="M20 190 L70 190 L90 90 L120 220 L150 60 L175 190 L210 130 L235 190 L270 190 L290 100 L315 190 L400 190"
+              fill="none" stroke="#e7c9a3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="20" y1="190" x2="400" y2="190" stroke="#3a352b" stroke-width="1"/>
+        <circle class="tick" cx="90" cy="90" r="4" fill="#b5591f"/>
+        <circle class="tick" cx="150" cy="60" r="4" fill="#b5591f"/>
+        <circle class="tick" cx="290" cy="100" r="4" fill="#b5591f"/>
+        <text x="20" y="230" font-family="IBM Plex Mono" font-size="11" fill="#a89d84">f0 ≈ 196.0 Hz — G3</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- SELECTED WORK -->
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-h">Selected work</h2>
+        <p class="kicker">Four projects, four different problems — software, AI, signal processing, and hardware.</p>
+      </div>
+
+      <div class="work-grid">
+
+        <article class="proj feature">
+          <p class="tag">AI · Civic Safety · Prototype</p>
+          <h3>JanRakshak AI</h3>
+          <p class="desc">A concept platform for detecting, analysing, and managing public-safety incidents — with separate citizen and administrator workflows, incident analysis, voice interaction, and severity classification.</p>
+          <div class="stack">
+            <span>AI-oriented</span><span>Incident classification</span><span>Voice interaction</span><span>Citizen + admin workflows</span>
+          </div>
+          <details class="case">
+            <summary>Read the case study</summary>
+            <dl class="case-body">
+              <div class="row"><dt>Problem</dt><dd>Public-safety incidents are reported inconsistently, and there's no single workflow connecting a citizen's report to an administrator's response.</dd></div>
+              <div class="row"><dt>Approach</dt><dd>Split the product into two workflows — a citizen-facing side for reporting and safety information, and an administrator side for triage — connected by incident analysis and severity classification.</dd></div>
+              <div class="row"><dt>Built</dt><dd>The core application structure covering both workflows, voice interaction for reporting, and a live safety-statistics view.</dd></div>
+              <div class="row"><dt>Status</dt><dd>Prototype / concept — not a deployed or government-adopted platform.</dd></div>
+              <div class="row"><dt>Learned</dt><dd>Designing for two very different users in one product forces much clearer thinking about what each screen is actually for.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="proj small">
+          <p class="tag">MATLAB · DSP</p>
+          <h3>GUI Guitar Tuner</h3>
+          <p class="desc">A graphical tuning app that uses autocorrelation to find the fundamental frequency of an audio signal and compares it against target guitar notes.</p>
+          <div class="stack"><span>Autocorrelation</span><span>DSP</span><span>GUI</span></div>
+          <details class="case">
+            <summary>Read the case study</summary>
+            <dl class="case-body">
+              <div class="row"><dt>Problem</dt><dd>How do you estimate the fundamental frequency of a guitar note from raw audio?</dd></div>
+              <div class="row"><dt>Approach</dt><dd>Autocorrelation to find periodicity in the signal, then map the detected frequency to the nearest target note.</dd></div>
+              <div class="row"><dt>Built</dt><dd>A MATLAB GUI that visualises the detected frequency against the target and shows how far off it is.</dd></div>
+              <div class="row"><dt>Learned</dt><dd>Signal processing stops being abstract the moment it becomes something you can tune a real string against.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="proj small">
+          <p class="tag">Embedded · Audio</p>
+          <h3>DFPlayer Mini MP3 Player</h3>
+          <p class="desc">A compact, low-cost audio playback system built around the DFPlayer Mini module and an amplifier stage.</p>
+          <div class="stack"><span>DFPlayer Mini</span><span>Amplifier stage</span><span>Circuit design</span></div>
+          <details class="case">
+            <summary>Read the case study</summary>
+            <dl class="case-body">
+              <div class="row"><dt>Problem</dt><dd>Build audio playback on a tight component budget, without a full microcontroller-driven audio pipeline.</dd></div>
+              <div class="row"><dt>Approach</dt><dd>Use the DFPlayer Mini for playback and pair it with an amplifier stage, working within real cost and component constraints.</dd></div>
+              <div class="row"><dt>Built</dt><dd>Component selection, wiring, and the amplifier circuit connecting playback to output.</dd></div>
+              <div class="row"><dt>Learned</dt><dd>Constraints on cost and parts change the design as much as the electronics theory does.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="proj small" style="grid-column:span 2;">
+          <p class="tag">Frontend · Interaction</p>
+          <h3>Dance / Choreography Platform</h3>
+          <p class="desc">A web interface concept for organising choreography and dance-related content, focused on responsive layout and visual hierarchy.</p>
+          <div class="stack"><span>Responsive layout</span><span>Interaction design</span></div>
+          <details class="case">
+            <summary>Read the case study</summary>
+            <dl class="case-body">
+              <div class="row"><dt>Problem</dt><dd>Choreography content — steps, counts, formations — is hard to browse in a plain list.</dd></div>
+              <div class="row"><dt>Approach</dt><dd>Build a layout that gives visual hierarchy to different content types, and keeps interaction simple across screen sizes.</dd></div>
+              <div class="row"><dt>Built</dt><dd>A responsive interface with interactive components for browsing dance-related content.</dd></div>
+              <div class="row"><dt>Learned</dt><dd>Interaction design for movement-based content needs different pacing than a typical content site.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING / SKILLS -->
+  <section aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="skills-h">How I build</h2>
+        <p class="kicker">Grouped by what each skill is actually for, not a wall of pills.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="skills-grid">
+        <div class="skill-col">
+          <h3>Software</h3>
+          <ul><li>C</li><li>C++</li><li>Java</li><li>Python</li><li>JavaScript</li></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Systems</h3>
+          <ul><li>Embedded systems</li><li>Audio systems</li><li>Circuit prototyping</li></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Signals</h3>
+          <ul><li>MATLAB</li><li>Digital signal processing</li><li>Autocorrelation</li><li>Audio analysis</li></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Fundamentals</h3>
+          <ul><li>Data structures</li><li>Algorithms</li><li>OOP</li><li>Problem solving</li></ul>
+        </div>
+        <div class="skill-col">
+          <h3>Frontend</h3>
+          <ul><li>HTML / CSS</li><li>JavaScript</li><li>Responsive UI</li><li>Component-based dev</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD LOG + PROBLEM SOLVING -->
+  <section id="build-log" aria-labelledby="bl-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="bl-h">Build log &amp; problem solving</h2>
+        <p class="kicker">I build real things, and sharpen the fundamentals behind them.</p>
+      </div>
+
+      <div class="bs-grid">
+        <div class="bs-card">
+          <h3>GitHub</h3>
+          <p class="sub">github.com/pranjaldadsena</p>
+          <div class="repo-row">
+            <div>
+              <div class="repo-name">leetcode-submissions-</div>
+              <p class="repo-desc">All the submissions I'll do until a job.</p>
+            </div>
+            <div class="repo-meta">Java · ★ 1</div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:16px;">More project repositories are on the way — this section fills in as the profile grows.</p>
+          <a class="card-link" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">View full profile →</a>
+        </div>
+
+        <div class="bs-card">
+          <h3>LeetCode</h3>
+          <p class="sub">Practising algorithms alongside building real projects.</p>
+          <div class="stat-row">
+            <span class="stat-num">57</span>
+            <span class="stat-label">problems solved</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-chip"><b>42</b> Java</span>
+            <span class="lang-chip"><b>11</b> C++</span>
+            <span class="lang-chip"><b>4</b> C</span>
+          </div>
+          <div class="tag-list">
+            <span>Array ×42</span><span>Hash Table ×12</span><span>Math ×12</span>
+            <span>Two Pointers ×12</span><span>Sorting ×11</span><span>Backtracking ×8</span>
+            <span>Dynamic Programming ×8</span>
+          </div>
+          <a class="card-link" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">View full profile →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + EDUCATION -->
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-h">About</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I'm an Electronics and Computer Engineering student at VIT Chennai. Most of what I build sits at the intersection of software, systems, signals, and hardware — an AI-oriented app one week, a DSP problem in MATLAB the next, an amplifier circuit after that.</p>
+          <p>I like projects that don't stay inside one discipline. Figuring out how a signal turns into a note, or how a citizen report turns into an administrator's dashboard, usually means moving between code and the physical constraints around it.</p>
+          <div class="beyond">
+            <h3>Beyond code</h3>
+            <p>Dance and choreography, beatboxing, and sketching — the same instinct for pattern and timing shows up in different places.</p>
+          </div>
+        </div>
+        <div>
+          <div class="edu-block">
+            <h3>Vellore Institute of Technology, Chennai</h3>
+            <p class="meta">B.Tech, Electronics and Computer Engineering · 2024 – Present</p>
+          </div>
+          <div class="edu-block minor">
+            <h3>Vidya Jyoti School, Jagdalpur</h3>
+            <p class="meta">Class 12 — 87% · Class 10 — 80%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <h2 id="contact-h">Let's talk about internships, roles, or a project.</h2>
+      <p class="lede">I'm looking for internships and entry-level roles across software, embedded systems, and frontend — happy to talk about any of the projects above in more depth.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:pranjaldadsena@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <strong>Pranjal Dadsena</strong> — Electronics &amp; Computer Engineering, VIT Chennai
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/pranjaldadsena" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/pranjal-dadsena" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://leetcode.com/u/pranjaldadsena/" target="_blank" rel="noopener">LeetCode</a></li>
+      <li><a href="mailto:pranjaldadsena@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
